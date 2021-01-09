@@ -1,12 +1,11 @@
 const express = require("express");
+const postRoute = require("./route/post");
+
+require('./config')()
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "this iss a test o yes",
-  });
-});
+app.use('/api/v1/posts', postRoute)
 
 const port = process.env.PORT || 4000;
 
